@@ -133,7 +133,6 @@ def handler(event, context):
         if handle_bot_response is not None:
             return handle_bot_response
 
-
         # Handling Slack messages
         message_response = handle_message(slack_event, persona)
         return message_response

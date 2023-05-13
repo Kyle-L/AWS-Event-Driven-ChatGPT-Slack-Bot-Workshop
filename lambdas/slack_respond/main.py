@@ -11,8 +11,16 @@ dynamodb_client = boto3.resource('dynamodb')
 ssm_client = boto3.client('ssm')
 
 # Global variables
-SLACK_BOT_TOKEN = ssm_client.get_parameter(Name=os.environ['SSM_SLACK_TOKEN'], WithDecryption=True)['Parameter']['Value']
-OPENAI_API_KEY = ssm_client.get_parameter(Name=os.environ['SSM_OPENAI_API_KEY'], WithDecryption=True)['Parameter']['Value']
+SLACK_BOT_TOKEN = ssm_client.get_parameter(
+    Name=os.environ['SSM_SLACK_TOKEN'], 
+    WithDecryption=True
+    )['Parameter']['Value']
+
+OPENAI_API_KEY = ssm_client.get_parameter(
+    Name=os.environ['SSM_OPENAI_API_KEY'], 
+    WithDecryption=True
+    )['Parameter']['Value']
+
 MAX_OPENAI_TOKENS = int(os.environ['MAX_OPENAI_TOKENS'])
 
 # Set OpenAI API key from Parameter Store
