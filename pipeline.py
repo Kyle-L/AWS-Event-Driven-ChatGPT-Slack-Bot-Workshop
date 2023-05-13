@@ -137,7 +137,7 @@ class SentimentAnalysisPipelineStack(Stack):
             layers=[openai_layer]
         )
 
-        slack_fn = aws_lambda_python_alpha.PythonFunction(
+        slack_queue_fn = aws_lambda_python_alpha.PythonFunction(
             self,
             f"{self.stack_name}-slack-queue",
             function_name=f"{self.stack_name}-slack-queue",
@@ -180,7 +180,7 @@ class SentimentAnalysisPipelineStack(Stack):
         personas_table.grant_read_data(slack_respond_fn)
 
         # Give the Lambda function permissions to read from the SQS queue
-        queue.grant_send_messages(slack_fn)
+        queue.grant_send_messages(slack_queue_fn)
 
         # Give the Lambda function permissions to read from SSM
         ssm_slack_token.grant_read(slack_respond_fn)
@@ -226,7 +226,7 @@ class SentimentAnalysisPipelineStack(Stack):
 
         slack_integration = HttpLambdaIntegration(
             f"{self.stack_name}-slack-integration",
-            slack_fn
+            slack_queue_fn
         )
                                               
         ########################################################
