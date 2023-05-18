@@ -1,4 +1,4 @@
-# Event-Driven ChatGPT Slack Bot <!-- omit in toc -->
+![Event-Driven ChatGPT Slack Bot](./docs/banner.png)
 
 *Estimated completion time: 1 hour* 
 *This set of instructions is intended for beginner and those new to AWS and event-driven architecture.*
@@ -73,7 +73,7 @@ Before we get started, let's go over some of the concepts that we will be using 
 
 > Event-driven architecture is a software architecture pattern promoting the production, detection, consumption of, and reaction to events. 
 
-Compared to traditional request-response architecture, a client sends a request and expects a response before performing the next task. In event-driven architecture, the client generates an event and can immediately move on to its next task.
+Compared to traditional request-response architecture, where a client sends a request and waits on a response before performing the next task, in event-driven architecture, the client generates an event and can immediately move on to its next task.
 
 In the context of this workshop, an event is the request we recieve from the Slack API. Once we recieve that event, we will immediately send a response back to Slack and queue up a task to generate a response to the event.
 
@@ -1045,4 +1045,4 @@ Now, let's deploy our application and see what we have so far! To do this, run t
 cdk deploy
 ```
 
-At this point, you should be able to send a message to your Slack bot and get a response back! If you are not getting a response back, make sure that you have completed all of the steps above. Otherwise, please refer to the [Troubleshooting](#troubleshooting) section below.
+At this point, you should be able to send a message to your Slack bot and get a response back! If you are not getting a response back, make sure that you have completed all of the steps above. Otherwise, please refer to the [completed code](https://github.com/Kyle-L/AWS-Event-Driven-ChatGPT-Slack-Bot/tree/complete) for the solution.
